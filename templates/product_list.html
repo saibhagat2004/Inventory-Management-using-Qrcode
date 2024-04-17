@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div id="mnu" class="msidenav">
+        <div class="logo">iX</div>
+        <div class="searchbar">
+          <input class="search">
+          <button class="sbtn"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+        <div class="spacer"></div>
+        <button class="mbtn"><i class="fa fa-list icon" aria-hidden="true"></i> Option One</button>
+        <button class="mbtn"><i class="fa fa-shopping-cart icon" aria-hidden="true"></i> Option Two</button>
+        <button class="mbtn"><i class="fa fa-user icon" aria-hidden="true"></i> Option Three</button>
+        <button class="mbtn"><i class="fa fa-bolt icon" aria-hidden="true"></i> Option Four</button>
+        <button class="mbtn"><i class="fa fa-calendar icon" aria-hidden="true"></i> Option Five</button>
+      </div>
+    
+      <div class="sidenav">
+        <div class="logo">iX</div>
+        
+        <div class="spacer"></div>
+        <button class="mbtn"><i class="fa fa-shopping-cart icon" aria-hidden="true"></i>  <a href="{{ url_for('index') }}">
+            <samp>Home</samp></a></button>
+        <button class="mbtn"><i class="fa fa-shopping-cart icon" aria-hidden="true"></i> Option Two</button>
+        <button class="mbtn"><i class="fa fa-user icon" aria-hidden="true"></i> Option Three</button>
+        <button class="mbtn"><i class="fa fa-bolt icon" aria-hidden="true"></i> Option Four</button>
+        <button class="mbtn"><i class="fa fa-calendar icon" aria-hidden="true"></i> Option Five</button>
+      </div>
+      <div class="content-area">
+        <div class="mobilebar">
+          <div class="logo sml">iX</div>
+          <div class="mbh">
+          <button class="mnubtn" onclick="slideMenu()"><i class="fa fa-bars" aria-hidden="true"></i></button>
+          </div>
+        </div>
+        <div class="upper">
+          <div class="page-title">Inventory</div>
+          <div class="searchbar">
+            <form action="/start_scanner" method="GET">
+                <button class="scanner-button" type="submit">Scan QR Code</button>
+            </form>
+            <div id="scannerOutput"></div>
+          </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="spacer"></div>
+        <h1>Product List</h1>
+        <div class="content-bar">
+          <div class="itemnum">#id </div>
+          <div class="itemtitle">Name</div>
+          <div class="itemtitle">Brand</div>
+
+          <div class="itemprice">Price</div>
+          <div class="itemstock"> Quantity</div>
+          <class class="btncontainer"></class>
+      </div>
+        {% for product in products %}
+            <div class="content-bar">
+                <div class="itemnum">#{{ product.id }} </div>
+                <div class="itemtitle">{{ product.name }}</div>
+                <div class="itemtitle">{{ product.brand }}</div>
+    
+                <div class="itemprice">${{ product.price }}</div>
+                <div class="itemstock"> {{ product.Qty }}</div>
+                <class class="btncontainer">
+                    <a href="{{ url_for('product', product_id=product.id) }}"><button class="cbbtn"><i class="fa fa-pencil" aria-hidden="true"></i></button></a>
+                </class>
+            </div>
+        {% endfor %}
+</body>
+</html>
+
+
+
