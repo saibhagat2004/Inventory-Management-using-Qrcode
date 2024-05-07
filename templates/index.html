@@ -30,11 +30,16 @@
     
     <div class="spacer"></div>
     <button class="mbtn"><i class="fa fa-list icon" aria-hidden="true"></i> Option One</button>
-    <button class="mbtn"><i class="fa fa-shopping-cart icon" aria-hidden="true"></i>  <a href="{{ url_for('product_list') }}">
-      <samp>Product List</samp></a></button>
+    <!-- <button class="mbtn"><i class="fa fa-shopping-cart icon" aria-hidden="true"></i>  <a stlye="" href="{{ url_for('product_list') }}">
+      <samp>Product List</samp></a></button> -->
+      <button class="mbtn" onclick="window.location='{{ url_for('product_list') }}';">
+        <i class="fa fa-shopping-cart icon" aria-hidden="true"></i>
+        <samp>Product List</samp>
+    </button>
+<!--     
     <button class="mbtn"><i class="fa fa-user icon" aria-hidden="true"></i> Option Three</button>
     <button class="mbtn"><i class="fa fa-bolt icon" aria-hidden="true"></i> Option Four</button>
-    <button class="mbtn"><i class="fa fa-calendar icon" aria-hidden="true"></i> Option Five</button>
+    <button class="mbtn"><i class="fa fa-calendar icon" aria-hidden="true"></i> Option Five</button> -->
   </div>
   
   <div class="content-area">

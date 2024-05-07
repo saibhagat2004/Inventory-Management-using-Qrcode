@@ -128,7 +128,7 @@ def product_list():
     products = Product.query.all()
     return render_template('product_list.html', products=products)
 
-
+ 
 @app.route('/dispatch_product', methods=['POST'])
 def dispatch_product():
     if request.method == 'POST':
