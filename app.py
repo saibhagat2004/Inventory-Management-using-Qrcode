@@ -1,13 +1,19 @@
 import cv2
+import os
 from pyzbar.pyzbar import decode
 from flask import Flask, render_template,request,render_template, url_for,redirect,flash,session
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
+from dotenv import load_dotenv
+# Load environment variables from .env file
+load_dotenv()
+
+
 
 app =Flask(__name__)
-app.secret_key="thisissecreatkey"
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:sai@localhost:5432/inventory_management'
-
+app.secret_key = os.getenv("SECRETKEY")
+# Set the database URI
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("POSTGRESSURL")
 db= SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 
